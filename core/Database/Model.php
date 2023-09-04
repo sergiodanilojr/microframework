@@ -34,22 +34,22 @@ abstract class Model
 
     public function query()
     {
-        return $this->qb;
+        return $this->query();
     }
 
     public function first(array $columns = ['*'])
     {
-        return $this->qb->select(implode(',', $columns))->get();
+        return $this->query()->select(implode(',', $columns))->get();
     }
 
     public function all(array $columns = ["*"])
     {
-        return $this->qb->select(implode(',', $columns))->get(true);
+        return $this->query()->select(implode(',', $columns))->get(true);
     }
 
     public function find($id, array $columns = ["*"])
     {
-        return $this->qb
+        return $this->query()
             ->select(implode(',', $columns))
             ->where("id=:id", "id=$id")
             ->get(true);
@@ -57,7 +57,7 @@ abstract class Model
 
     public function findOr($id, callable $callback, array $columns = ["*"])
     {
-        $find = $this->qb
+        $find = $this->query()
             ->select(implode(',', $columns))
             ->where("id=:id", "id=$id")
             ->get(true);
@@ -70,7 +70,7 @@ abstract class Model
     public function create(array $data): self
     {
         $this->attributes = $data;
-        $id = $this->qb->create($this->attributes);
+        $id = $this->query()->create($this->attributes);
         $this->attributes['id'] = $id;
 
         return $this;
@@ -79,7 +79,7 @@ abstract class Model
     public function update(array $data)
     {
         $data = array_merge($this->attributes, $data);
-        $this->qb->update($data, "id=:id", "id={$this->attributes['id']}");
+        $this->query()->update($data, "id=:id", "id={$this->attributes['id']}");
     }
 
     public function fill(array $fields)
