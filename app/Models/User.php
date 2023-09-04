@@ -2,25 +2,11 @@
 
 namespace App\Models;
 
-use Spot\EntityInterface as Entity;
-use Spot\MapperInterface as Mapper;
+use Core\Database\Model;
 
-class User extends \Spot\Entity
+class User extends Model
 {
-    protected static $table = 'users';
+    protected $table = 'users';
 
-    public static function fields()
-    {
-        return [
-            'id' => ['type' => 'integer', 'autoincrement' => true, 'primary' => true],
 
-        ];
-    }
-
-    public static function relations(Mapper $mapper, Entity $entity)
-    {
-        return [
-
-        ];
-    }
 }

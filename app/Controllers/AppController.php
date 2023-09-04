@@ -23,17 +23,19 @@ class AppController extends Controller
 //        $qb = QueryBuilder::table('users')->select(['id', 'name']);
 //        dd($qb);
 
-        $qb = new QB('users');
+        $user = new User();
 
-        $opa = $qb->create([
-            'id' => 3,
-            'name' => 'Bagual',
-            'email' => 'eu@email.com',
-            'password' => "123",
-            'created_at'=>(new \DateTime())->format('Y-m-d H:i:s'),
-        ]);
+//        $user = $user->create([
+//            'id' => 10,
+//            'name' => 'Sergio Danilo Jr',
+//            'email' => 'sergio@email.com',
+//            'password' => password_hash('password', PASSWORD_BCRYPT),
+//            'created_at'=>date('Y-m-d H:i:s'),
+//        ]);
 
-        dd($opa, $qb->select('name')->get());
+        $user->name = 'Bagual';
+
+        dd($user);
 
         return $this->render('app');
     }

@@ -19,8 +19,7 @@
         "adbario/php-dot-notation": "3.x-dev",
         "vlucas/phpdotenv": "5.5.x-dev",
         "symfony/console": "6.4.x-dev",
-        "illuminate/database": "10.x-dev",
-        "elephpant/light-query-builder": "1.1.14"
+        "elephpant/light-query-builder": "1.1.15"
     },
     "require-dev": {
         "symfony/var-dumper": "^6.2"
