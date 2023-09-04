@@ -5,5 +5,6 @@ return [
     'default_namespace' => 'App\Console\Commands',
     'commands' => [
         \Core\Console\MakeCommand::class,
+        \Core\Console\MakeModel::class
     ],
 ];

@@ -10,7 +10,7 @@ Dotenv\Dotenv::createImmutable(__DIR__)->load();
 
 $application = new Application(config('app.name'));
 
-\Core\Bootstrapers\ConfigureMigrations::initialize($application);
+// \Core\Bootstrapers\ConfigureMigrations::initialize($application);
 
 $commands = config('console.commands');
 
